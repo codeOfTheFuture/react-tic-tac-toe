@@ -8,6 +8,7 @@ const BoardSquare = ({ boardSquareNum }) => {
         height: "200px",
         border: "1px solid black",
       }}
+      data-test='component-board-square'
     >
       {boardSquareNum}
     </div>

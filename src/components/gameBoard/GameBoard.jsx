@@ -1,5 +1,5 @@
 import React from "react";
-import BoardSquare from "./BoardSquare";
+import BoardSquare from "../boardSquare/BoardSquare";
 
 const GameBoard = () => {
   const board = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -11,6 +11,7 @@ const GameBoard = () => {
         display: "grid",
         gridTemplateColumns: "1fr 1fr 1fr",
       }}
+      data-test='component-game-board'
     >
       {board.map((boardSquareNum) => (
         <BoardSquare key={boardSquareNum} boardSquareNum={boardSquareNum} />
