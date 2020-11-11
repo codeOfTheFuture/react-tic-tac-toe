@@ -1,16 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 
-const BoardSquare = ({ boardSquareNum }) => {
+import { boardSquare, notSelected, selected } from "./BoardSquare.module.css";
+
+const BoardSquare = () => {
+  const [boardSquareSelected, setBoardSquareSelected] = useState(false);
+
+  const selectBoardSquare = () => {
+    if (boardSquareSelected === false) {
+      setBoardSquareSelected(true);
+    }
+  };
+
   return (
     <div
-      style={{
-        width: "200px",
-        height: "200px",
-        border: "1px solid black",
-      }}
+      className={boardSquare}
       data-test='component-board-square'
+      onClick={selectBoardSquare}
     >
-      {boardSquareNum}
+      <div className={boardSquareSelected ? selected : notSelected}>X</div>
     </div>
   );
 };

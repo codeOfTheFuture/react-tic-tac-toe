@@ -1,16 +1,10 @@
 import GameBoard from "./components/gameBoard/GameBoard";
 
+import "./App.css";
+
 function App() {
   return (
-    <div
-      className='App'
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <div className='App'>
       <h1>Tic Tac Toe</h1>
       <GameBoard />
     </div>
