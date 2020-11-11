@@ -1,10 +1,17 @@
-import { shallow } from "enzyme";
-
-import { findByTestAttr } from "../../../test/testUtils";
+import React from "react";
+import { mount } from "enzyme";
+import { Provider } from "react-redux";
+import { findByTestAttr, storeFactory } from "../../../test/testUtils";
 import PlayerForm from "./PlayerForm";
 
-const setup = () => {
-  return shallow(<PlayerForm />);
+const setup = (initialState = {}) => {
+  const store = storeFactory(initialState);
+  const wrapper = mount(
+    <Provider store={store}>
+      <PlayerForm />
+    </Provider>
+  );
+  return wrapper;
 };
 
 test("renders without error", () => {
