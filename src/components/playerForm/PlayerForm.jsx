@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { actionTypes } from "../../actions";
+import { setPlayers, gameStarted } from "../../actions";
 
 import {
   playerForm,
@@ -40,7 +40,8 @@ const PlayerForm = () => {
       moves,
     };
 
-    dispatch({ type: actionTypes.SET_PLAYERS, payload: { player1, player2 } });
+    dispatch(setPlayers(player1, player2));
+    dispatch(gameStarted());
 
     setPlayerName1((state) => {
       state = "";
@@ -68,6 +69,7 @@ const PlayerForm = () => {
             placeholder='Player 1'
             value={playerName1}
             onChange={(e) => setPlayerName1(e.target.value)}
+            data-test='input'
           />
         </div>
         <div className={formGroup}>
@@ -79,10 +81,13 @@ const PlayerForm = () => {
             placeholder='Player 2'
             value={playerName2}
             onChange={(e) => setPlayerName2(e.target.value)}
+            data-test='input'
           />
         </div>
       </div>
-      <button type='submit'>Start Game</button>
+      <button type='submit' data-test='start-game'>
+        Start Game
+      </button>
     </form>
   );
 };
