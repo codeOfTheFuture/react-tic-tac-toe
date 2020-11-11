@@ -1,0 +1,25 @@
+.playerForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2em 0;
+}
+
+.playerInputs {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 600px;
+  margin: 1em 0;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.playerInput {
+  width: 10rem;
+  height: 2rem;
+}
