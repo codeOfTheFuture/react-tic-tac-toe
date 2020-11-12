@@ -20,7 +20,7 @@ describe("render", () => {
     beforeEach(() => {
       const initialState = {
         gameStarted: false,
-        playerTurn: "",
+        currentPlayer: {},
         gameOver: false,
       };
       wrapper = setup(initialState);

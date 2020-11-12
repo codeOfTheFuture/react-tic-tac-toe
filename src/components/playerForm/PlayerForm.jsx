@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setPlayers, startGame } from "../../actions";
+import { setPlayers, startGame, setCurrentPlayer } from "../../actions";
 import {
   playerForm,
   playerInputs,
@@ -42,6 +42,7 @@ const PlayerForm = () => {
     };
 
     dispatch(setPlayers(player1, player2));
+    dispatch(setCurrentPlayer(player1));
     dispatch(startGame());
 
     setPlayerName1((state) => {
