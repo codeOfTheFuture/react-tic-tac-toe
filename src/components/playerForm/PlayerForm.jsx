@@ -13,36 +13,15 @@ const PlayerForm = () => {
   const [playerName2, setPlayerName2] = useState("");
 
   const gameStarted = useSelector(({ game }) => game.gameStarted);
+  const player1 = useSelector(({ players }) => players.player1);
   const totalMoves = useSelector(({ game }) => game.totalMoves);
 
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const moves = {
-      topRow: [],
-      middleRow: [],
-      bottomRow: [],
-      leftColumn: [],
-      middleColumn: [],
-      rightColumn: [],
-      leftDiagonal: [],
-      rightDiagonal: [],
-    };
-
-    const player1 = {
-      name: playerName1,
-      symbol: "X",
-      moves,
-    };
-
-    const player2 = {
-      name: playerName2,
-      symbol: "O",
-      moves,
-    };
-
-    dispatch(setPlayers(player1, player2));
+    dispatch(setPlayers(playerName1, playerName2));
+    player1.name = playerName1;
     dispatch(setCurrentPlayer(player1));
     dispatch(startGame());
 

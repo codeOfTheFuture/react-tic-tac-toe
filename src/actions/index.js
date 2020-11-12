@@ -3,12 +3,14 @@ export const actionTypes = {
   GAME_STARTED: "GAME_STARTED",
   SET_CURRENT_PLAYER: "SET_CURRENT_PLAYER",
   UPDATE_TOTAL_MOVES: "UPDATE_TOTAL_MOVES",
+  UPDATE_PLAYER_1: "UPDATE_PLAYER_1",
+  UPDATE_PLAYER_2: "UPDATE_PLAYER_2",
   GAME_OVER: "GAME_OVER",
 };
 
-export const setPlayers = (player1, player2) => ({
+export const setPlayers = (playerName1, playerName2) => ({
   type: actionTypes.SET_PLAYERS,
-  payload: { player1, player2 },
+  payload: { playerName1, playerName2 },
 });
 
 export const startGame = () => ({
@@ -28,3 +30,17 @@ export const updateTotalMoves = (totalMoves) => ({
 export const gameOver = () => ({
   type: actionTypes.GAME_OVER,
 });
+
+export const updatePlayer = (player) => {
+  if (player.symbol === "X") {
+    return {
+      type: actionTypes.UPDATE_PLAYER_1,
+      payload: player,
+    };
+  } else {
+    return {
+      type: actionTypes.UPDATE_PLAYER_2,
+      payload: player,
+    };
+  }
+};
