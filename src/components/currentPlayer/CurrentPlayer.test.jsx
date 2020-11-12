@@ -17,16 +17,8 @@ const setup = (initialState = {}) => {
 
 describe("render", () => {
   describe("game has not been started", () => {
-    let wrapper;
-    beforeEach(() => {
-      const initialState = {
-        gameStarted: true,
-        playerTurn: "player1",
-        gameOver: false,
-      };
-      wrapper = setup(initialState);
-    });
     test("component does not render", () => {
+      const wrapper = setup({ game: { gameStarted: false } });
       const component = findByTestAttr(wrapper, "component-current-player");
       expect(component.length).toBe(0);
     });

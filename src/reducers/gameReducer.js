@@ -4,6 +4,7 @@ const initialState = {
   gameStarted: false,
   currentPlayer: {},
   gameOver: false,
+  totalMoves: 0,
 };
 
 export default (state = initialState, action) => {
@@ -18,6 +19,17 @@ export default (state = initialState, action) => {
         ...state,
         gameStarted: true,
         gameOver: false,
+      };
+    case actionTypes.UPDATE_TOTAL_MOVES:
+      return {
+        ...state,
+        totalMoves: action.payload,
+      };
+    case actionTypes.GAME_OVER:
+      return {
+        ...state,
+        gameStarted: false,
+        gameOver: true,
       };
     default:
       return state;

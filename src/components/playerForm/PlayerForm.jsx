@@ -13,6 +13,7 @@ const PlayerForm = () => {
   const [playerName2, setPlayerName2] = useState("");
 
   const gameStarted = useSelector(({ game }) => game.gameStarted);
+  const totalMoves = useSelector(({ game }) => game.totalMoves);
 
   const dispatch = useDispatch();
 
@@ -56,7 +57,8 @@ const PlayerForm = () => {
   };
 
   return (
-    !gameStarted && (
+    !gameStarted &&
+    totalMoves === 0 && (
       <form
         className={playerForm}
         data-test='component-player-form'
