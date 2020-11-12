@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { setPlayers, gameStarted } from "../../actions";
-
+import { useSelector, useDispatch } from "react-redux";
+import { setPlayers, startGame } from "../../actions";
 import {
   playerForm,
   playerInputs,
@@ -12,6 +11,8 @@ import {
 const PlayerForm = () => {
   const [playerName1, setPlayerName1] = useState("");
   const [playerName2, setPlayerName2] = useState("");
+
+  const gameStarted = useSelector(({ game }) => game.gameStarted);
 
   const dispatch = useDispatch();
 
@@ -41,7 +42,7 @@ const PlayerForm = () => {
     };
 
     dispatch(setPlayers(player1, player2));
-    dispatch(gameStarted());
+    dispatch(startGame());
 
     setPlayerName1((state) => {
       state = "";
@@ -54,41 +55,43 @@ const PlayerForm = () => {
   };
 
   return (
-    <form
-      className={playerForm}
-      data-test='component-player-form'
-      onSubmit={handleSubmit}
-    >
-      <div className={playerInputs}>
-        <div className={formGroup}>
-          <label htmlFor='player1'>Player 1</label>
-          <input
-            type='text'
-            className={playerInput}
-            name='player1'
-            placeholder='Player 1'
-            value={playerName1}
-            onChange={(e) => setPlayerName1(e.target.value)}
-            data-test='input'
-          />
+    !gameStarted && (
+      <form
+        className={playerForm}
+        data-test='component-player-form'
+        onSubmit={handleSubmit}
+      >
+        <div className={playerInputs}>
+          <div className={formGroup}>
+            <label htmlFor='player1'>Player 1</label>
+            <input
+              type='text'
+              className={playerInput}
+              name='player1'
+              placeholder='Player 1'
+              value={playerName1}
+              onChange={(e) => setPlayerName1(e.target.value)}
+              data-test='input'
+            />
+          </div>
+          <div className={formGroup}>
+            <label htmlFor='player2'>Player 2</label>
+            <input
+              type='text'
+              className={playerInput}
+              name='player2'
+              placeholder='Player 2'
+              value={playerName2}
+              onChange={(e) => setPlayerName2(e.target.value)}
+              data-test='input'
+            />
+          </div>
         </div>
-        <div className={formGroup}>
-          <label htmlFor='player2'>Player 2</label>
-          <input
-            type='text'
-            className={playerInput}
-            name='player2'
-            placeholder='Player 2'
-            value={playerName2}
-            onChange={(e) => setPlayerName2(e.target.value)}
-            data-test='input'
-          />
-        </div>
-      </div>
-      <button type='submit' data-test='start-game'>
-        Start Game
-      </button>
-    </form>
+        <button type='submit' data-test='start-game'>
+          Start Game
+        </button>
+      </form>
+    )
   );
 };
 

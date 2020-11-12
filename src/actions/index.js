@@ -8,6 +8,6 @@ export const setPlayers = (player1, player2) => ({
   payload: { player1, player2 },
 });
 
-export const gameStarted = () => ({
+export const startGame = () => ({
   type: actionTypes.GAME_STARTED,
 });

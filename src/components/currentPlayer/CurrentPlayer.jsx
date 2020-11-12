@@ -1,14 +1,18 @@
 import React from "react";
-// import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 
 const CurrentPlayer = () => {
+  const gameStarted = useSelector(({ game }) => game.gameStarted);
+
   return (
-    <div>
-      <h3>
-        Current Player:
-        <span>Player1</span>
-      </h3>
-    </div>
+    gameStarted && (
+      <div data-test='component-current-player'>
+        <h3>
+          Current Player:
+          <span>Player1</span>
+        </h3>
+      </div>
+    )
   );
 };
 

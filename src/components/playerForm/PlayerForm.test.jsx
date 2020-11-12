@@ -27,7 +27,6 @@ describe("render", () => {
     });
 
     test("renders component without error", () => {
-      const wrapper = setup();
       const component = findByTestAttr(wrapper, "component-player-form");
       expect(component.length).toBe(1);
     });
