@@ -1,4 +1,4 @@
-export default (player, boardSquareNum) => {
+const setPlayerMoves = (player, boardSquareNum) => {
   let {
     topRow,
     middleRow,
@@ -68,3 +68,5 @@ export default (player, boardSquareNum) => {
   player.moves = moves;
   return player;
 };
+
+export default setPlayerMoves;

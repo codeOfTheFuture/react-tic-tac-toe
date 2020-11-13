@@ -8,7 +8,7 @@ const initialState = {
   totalMoves: 0,
 };
 
-export default (state = initialState, action) => {
+const game = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SET_CURRENT_PLAYER:
       return {
@@ -36,3 +36,5 @@ export default (state = initialState, action) => {
       return state;
   }
 };
+
+export default game;
