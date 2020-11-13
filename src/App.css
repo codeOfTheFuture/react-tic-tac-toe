@@ -1,6 +1,10 @@
-.App {
+.container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 60%;
+  height: 100%;
+  margin: 3rem auto;
+  background-color: lightgray;
 }

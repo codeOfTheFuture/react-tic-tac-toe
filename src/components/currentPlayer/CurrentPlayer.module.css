@@ -1,0 +1,7 @@
+.currentPlayerWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 12rem;
+  width: 100%;
+}

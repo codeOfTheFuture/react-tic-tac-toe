@@ -15,6 +15,7 @@ const BoardSquare = ({ boardSquareNum }) => {
   const players = useSelector(({ players }) => players);
   const currentPlayer = useSelector(({ game }) => game.currentPlayer);
   const totalMoves = useSelector(({ game }) => game.totalMoves);
+  const gameStarted = useSelector(({ game }) => game.gameStarted);
   const gameEnded = useSelector(({ game }) => game.gameOver);
 
   const dispatch = useDispatch();
@@ -23,14 +24,14 @@ const BoardSquare = ({ boardSquareNum }) => {
   const [playerSymbol, setPlayerSymbol] = useState("");
 
   const selectBoardSquare = () => {
-    if (!gameEnded) {
+    if (gameStarted && !gameEnded) {
       if (boardSquareSelected === false) {
         setBoardSquareSelected(true);
         setPlayerSymbol(currentPlayer.symbol);
 
         let updatedPlayer;
         updatedPlayer = setPlayerMoves(currentPlayer, boardSquareNum);
-        console.log(updatedPlayer);
+
         updatedPlayer = checkPlayerMoves(updatedPlayer);
 
         if (totalMoves + 1 === 9) {

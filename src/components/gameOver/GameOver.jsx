@@ -1,20 +1,21 @@
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
+
+import { gameOverWrapper } from "./GameOver.module.css";
 
 const GameOver = () => {
   const gameOver = useSelector(({ game }) => game.gameOver);
   const currentPlayer = useSelector(({ game }) => game.currentPlayer);
 
-  const congrats = <h4>Congrats {currentPlayer.name}! You Won</h4>;
-
-  const draw = <h4>Draw</h4>;
-
   return (
     gameOver && (
-      <div data-test='component-game-over'>
-        <h3>Game Over</h3>
-        {currentPlayer.wonGame ? congrats : draw}
-        <button>New Game</button>
+      <div data-test='component-game-over' className={gameOverWrapper}>
+        <h2>Game Over</h2>
+        {currentPlayer.wonGame ? (
+          <h3>Congrats {currentPlayer.name}! You Won!</h3>
+        ) : (
+          <h3>Draw</h3>
+        )}
       </div>
     )
   );

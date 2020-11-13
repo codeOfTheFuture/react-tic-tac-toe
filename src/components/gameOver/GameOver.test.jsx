@@ -23,6 +23,10 @@ describe("render", () => {
         game: {
           gameStarted: false,
           gameOver: true,
+          currentPlayer: {
+            name: "",
+            wonGame: false,
+          },
         },
       };
       wrapper = setup(initialState);

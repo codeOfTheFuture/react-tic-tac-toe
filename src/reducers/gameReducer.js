@@ -1,6 +1,7 @@
 import { actionTypes } from "../actions";
 
 const initialState = {
+  gameBoard: [1, 2, 3, 4, 5, 6, 7, 8, 9],
   gameStarted: false,
   currentPlayer: {},
   gameOver: false,
@@ -18,7 +19,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         gameStarted: true,
-        gameOver: false,
+        resetBoard: false,
       };
     case actionTypes.UPDATE_TOTAL_MOVES:
       return {

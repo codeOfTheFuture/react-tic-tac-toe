@@ -2,7 +2,7 @@ import { actionTypes } from "../actions";
 
 const initialState = {
   player1: {
-    name: "Player 1",
+    name: "",
     symbol: "X",
     wonGame: false,
     moves: {
@@ -17,7 +17,7 @@ const initialState = {
     },
   },
   player2: {
-    name: "Player 2",
+    name: "",
     symbol: "O",
     wonGame: false,
     moves: {

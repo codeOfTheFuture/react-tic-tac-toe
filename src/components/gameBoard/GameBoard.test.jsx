@@ -1,10 +1,18 @@
-import { shallow } from "enzyme";
+import React from "react";
+import { mount } from "enzyme";
+import { Provider } from "react-redux";
+import { findByTestAttr, storeFactory } from "../../../test/testUtils";
 
-import { findByTestAttr } from "../../../test/testUtils";
 import GameBoard from "./GameBoard";
 
-const setup = () => {
-  return shallow(<GameBoard />);
+const setup = (initialState = {}) => {
+  const store = storeFactory(initialState);
+  const wrapper = mount(
+    <Provider store={store}>
+      <GameBoard />
+    </Provider>
+  );
+  return wrapper;
 };
 
 test("renders without error", () => {

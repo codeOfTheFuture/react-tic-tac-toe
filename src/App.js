@@ -8,11 +8,13 @@ import "./App.css";
 const App = () => {
   return (
     <div className='App'>
-      <h1>Tic Tac Toe</h1>
-      <PlayerForm />
-      <CurrentPlayer />
-      <GameOver />
-      <GameBoard />
+      <div className='container'>
+        <h1>Tic Tac Toe</h1>
+        <PlayerForm />
+        <CurrentPlayer />
+        <GameOver />
+        <GameBoard />
+      </div>
     </div>
   );
 };

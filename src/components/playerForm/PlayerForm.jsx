@@ -6,6 +6,7 @@ import {
   playerInputs,
   formGroup,
   playerInput,
+  btn,
 } from "./PlayerForm.module.css";
 
 const PlayerForm = () => {
@@ -20,8 +21,9 @@ const PlayerForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(setPlayers(playerName1, playerName2));
+
     player1.name = playerName1;
+    dispatch(setPlayers(playerName1, playerName2));
     dispatch(setCurrentPlayer(player1));
     dispatch(startGame());
 
@@ -69,7 +71,7 @@ const PlayerForm = () => {
             />
           </div>
         </div>
-        <button type='submit' data-test='start-game'>
+        <button type='submit' data-test='start-game' className={btn}>
           Start Game
         </button>
       </form>
